@@ -16,7 +16,7 @@ window.addEventListener('message', function(event) {
                 src: ["./sounds/" + event.data.file],
                 onend: function() {
                     delete AudioPlayers[event.data.source][event.data.file];
-                    $.post('https://pulsar-sounds/SoundEnd', JSON.stringify({
+                    $.post('https://pulsar_sounds/SoundEnd', JSON.stringify({
                         source: event.data.source,
                         file: event.data.file
                     }))
@@ -47,7 +47,7 @@ window.addEventListener('message', function(event) {
             if (Boolean(AudioPlayers[event.data.source]) && Boolean(AudioPlayers[event.data.source][event.data.file])) {
                 AudioPlayers[event.data.source][event.data.file].stop();
                 delete AudioPlayers[event.data.source][event.data.file];
-                // $.post('https://pulsar-sounds/SoundEnd', JSON.stringify({
+                // $.post('https://pulsar_sounds/SoundEnd', JSON.stringify({
                 //     source: event.data.source,
                 //     file: event.data.file
                 // }))
@@ -66,7 +66,7 @@ window.addEventListener('message', function(event) {
             if (Boolean(AudioPlayers[event.data.source])) {
                 if (!Boolean(AudioPlayers[event.data.source][event.data.file])) {
                     delete AudioPlayers[event.data.source][event.data.file];
-                    $.post('https://pulsar-sounds/SoundEnd', JSON.stringify({
+                    $.post('https://pulsar_sounds/SoundEnd', JSON.stringify({
                         source: event.data.source,
                         file: event.data.file
                     }))
